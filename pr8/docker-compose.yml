@@ -1,20 +1,16 @@
-version: '3.3'
 services:
-  wordpress:
-    image: wordpress
+  joomla:
+    image: joomla
     restart: always
     links:
       - wordpressdb-vendilovskij:mysql
     ports:
       - "8080:80"
-    working_dir: /var/www/html
-    volumes:
-      - "/opt/wp-content:/var/www/html/wp-content"
     environment:
-      WORDPRESS_DB_HOST: wordpressdb-vendilovskij:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+      JOOMLA_DB_HOST: wordpressdb-vendilovskij:3306
+      JOOMLA_DB_USER: wordpress
+      JOOMLA_DB_PASSWORD: wordpress
+      JOOMLA_DB_NAME: wordpress
 
   wordpressdb-vendilovskij:
     image: mariadb:latest
